@@ -15,6 +15,11 @@ async function getNewsItem(id) {
 export default function SingleNewsItemPage({ params, searchParams }) {
     var newsItem = use(getNewsItem( params.slug ));
 
+    var comments = newsItem.kids;
+    if(comments && comments.length > 0) {
+        comments = comments.slice(0, 30);
+    }
+
     return (
         <>            
             <main className="pt-0">          
@@ -59,10 +64,10 @@ export default function SingleNewsItemPage({ params, searchParams }) {
                         </div>
                     </div>
 
-                    { newsItem.kids && newsItem.kids.length > 0 && 
+                    { comments && comments.length > 0 && 
                         <>
                             <div className="w-full max-w-4xl">
-                                { newsItem.kids.map((commentId, index) => (
+                                { comments.map((commentId, index) => (
                                     <>
                                         <SingleComment comment_id={ commentId } key={ index } />
                                     </>
