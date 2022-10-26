@@ -1,6 +1,7 @@
 import { use } from 'react';
 
 import SinglePost from "../components/posts/SinglePost"
+import NewsList from "../components/posts/NewsList"
 
 async function getNewsItems() {
 
@@ -10,25 +11,13 @@ async function getNewsItems() {
 }
 
 export default function Page() {
+    
     var newsItems = use(getNewsItems());
-    newsItems = newsItems.slice(0, 30);
 
     return (
         <>
             
-            <main className="pt-0">          
-                <div className="relative flex min-h-screen flex-col jus items-center justify-center overflow-hidden bg-gray-50 p-6 sm:py-12">
-                    {newsItems &&
-                        <>
-                            {newsItems.map(item => {
-                                return (
-                                    <SinglePost key={item} id={item} />
-                                )
-                            })}
-                        </>
-                    }
-                </div>
-            </main>
+            <NewsList data={newsItems} />
 
         </>
     )
