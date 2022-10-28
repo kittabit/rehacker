@@ -8,9 +8,9 @@ export default function NewsList( props ) {
 
     const searchParams = useSearchParams();
 
-    var items_per_page = 30;
+    var items_per_page = 25;
     var start = 0;
-    var end = 30;
+    var end = 25;
     var p = searchParams.get('p');
     if( p == null || p == 0) {
         p = 0;
@@ -18,9 +18,6 @@ export default function NewsList( props ) {
         start = p * items_per_page;
         end = start + items_per_page;
     }
-
-    var next_page = parseInt(p) + 1;
-    var prev_page = parseInt(p) - 1;
     
     var newsItems = props.data;
     newsItems = newsItems.slice(start, end);

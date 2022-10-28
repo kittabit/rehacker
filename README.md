@@ -1,10 +1,12 @@
 # Rehacker
 
-Note:  This is an early *NextJS 13* test build/learning expirement with all of the recent changes/additions; feel free to fork, make changes, point out bugs/idiotic configurations, etc. :)
+In an attempt to get up to speed with the processes and changes within the [NextJS](https://nextjs.org/blog/next-13) 13.x framework, this is a simple repository / clone of the [HackerNews](https://news.ycombinator.com/) website with all of it's data to showcase dynamic content, fetching of API data, routes, layouts, components, etc.  
+
+Please feel free to fork, make changes, point out bugs/idiotic configurations, etc. :)
 
 ## Demo URL
 
-[Rehacker](https://rehacker.vercel.app/)
+[Rehacker](https://rehacker.xyz/)
 
 ## Build Instructions
 
@@ -20,13 +22,16 @@ Note:  This is an early *NextJS 13* test build/learning expirement with all of t
 
 `npm run build`
 
+### Analytics
+
+If you'd like to use Google Tag Manager, you can use the `NEXT_PUBLIC_ANALYTICS_ID` environment variable with your `GTM-XXXX` tag to have this applied to your build.
+
 ### Current Todo's
 
-* Threaded Comments (and ability to `Load More`)
-* Comments Styling & Readability
-* Comments JSON Undefined Issue
 * Better Organization of getData* Functions
 * SEO / New `HEAD` Setup (`head.js`)
-* Single News Item Styling & Updates
+* Sitemap & Robots.txt
 * Mobile/Responsive Fixes
-* Performance Updates & Caching
+* SSG News Items Support
+* Caching & Performance Updates
+* Dynamic Page Count (New, Jobs, Ask, etc)
