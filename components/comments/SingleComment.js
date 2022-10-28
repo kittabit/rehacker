@@ -1,44 +1,76 @@
-import { comment } from 'postcss';
-import { use } from 'react';
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 import DateOutput from '../global/DateOutput';
-
-async function getComment(id) {
-
-    const res = await fetch('https://hacker-news.firebaseio.com/v0/item/' + id + '.json?print=pretty');
-    
-    try {
-        return res.json();
-    } catch (e) {
-        return false;
-    }
-
-
-}
+import ThreadedComments from './ThreadedComments'
 
 export default function SingleComment( props ) {
 
-    var commentItem = use(getComment( props.comment_id ));
+    const [commentData, setCommentData] = useState(null)
+    const [isLoaded, setIsLoaded] = useState(false)
 
+    const [showCommentThread, setShowCommentThread] = useState(false)
+
+    useEffect(() => {
+        fetch('https://hacker-news.firebaseio.com/v0/item/' + props.comment_id + '.json')
+          .then((res) => res.json())
+          .then((data) => {
+            setCommentData(data)
+            setIsLoaded(true)
+          })
+    }, [ props.comment_id ])
+
+    function toggleThread() {
+        setShowCommentThread(!showCommentThread)
+    }
+    
     return (
         <>  
-            { commentItem.by &&
+            { isLoaded && commentData.by &&
                 <>
-                    <div className="bg-white shadow-xl shadow-gray-100 w-full max-w-4xl px-5 py-4 border-b-2 border-grey">
-                        <div className="relative flex gap-4 ">
-                            <div className="flex flex-col w-full">
-                                <div className="flex flex-row justify-between">
-                                    <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">
-                                        { commentItem.by }
-                                        <span className="text-gray-400 text-sm ml-2"><DateOutput time={ commentItem.time } /></span>    
-                                    </p>
-                                </div>                        
-                            </div>
+                    <div className="flex" data-comment_id={ props.comment_id }>
+                        <div className="flex-1 sm:px-6 sm:py-2 leading-relaxed">
+                            <strong>
+                                <Link href="/user/[username]" as={`/user/${commentData.by}`} className="hover:underline underline-offset-2">
+                                    { commentData.by }
+                                </Link>        
+                            </strong> 
+                            <span className="text-xs text-gray-400 pl-2"><DateOutput time={ commentData.time } /></span>
+
+                            { commentData.deleted || commentData.dead ? (
+                                <>
+                                    <div className="text-sm leading-7 [&>p]:mb-1.5 [&>a]:underline"><del>Deleted.</del></div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="text-sm leading-7 [&>p]:mb-1.5 [&>a]:underline w-11/12" dangerouslySetInnerHTML={{ __html: commentData.text }}></div>
+                                </>
+                            ) }
+
+                            { commentData.kids &&
+                                <>
+                                    <div className="mt-4 flex items-center">
+                                        <button className="text-sm text-gray-800 font-semibold" onClick={ toggleThread }>
+                                             {showCommentThread ? 'Hide Comment Replies' : 'Show Comment Replies'}
+                                        </button>
+                                    </div>
+                                    
+                                    { showCommentThread &&
+                                        <>
+                                            <div className="space-y-4 mt-2">
+                                                {commentData.kids.map((comment_id) => (
+                                                    <ThreadedComments key={comment_id} comment_id={comment_id} />
+                                                ))}
+                                            </div>
+                                        </>
+                                    }
+                                </>
+                            }
+
                         </div>
-                        { commentItem.text &&
-                            <div className="text-gray-500" dangerouslySetInnerHTML={{ __html: commentItem.text }} />
-                        }
-                    </div>
+                    </div> 
                 </>
             }
         </>

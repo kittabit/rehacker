@@ -2,11 +2,17 @@ export default function DateOutput( props ) {
 
     let unix_timestamp = props.time;
     var date = new Date(unix_timestamp * 1000);
-    var dateString = date.getUTCFullYear() +"/"+ (date.getUTCMonth()+1) +"/"+ date.getUTCDate() + " " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds();
+
+    var dateString =
+        ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
+        ("00" + date.getDate()).slice(-2) + "/" +
+        date.getFullYear() + " " +
+        ("00" + date.getHours()).slice(-2) + ":" +
+        ("00" + date.getMinutes()).slice(-2);
 
     return (
         <>
-            {dateString}
+            <em class="text-xs">{dateString}</em>
         </>
     )
 
