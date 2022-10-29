@@ -12,7 +12,7 @@ export default function DateOutput( props ) {
 
     return (
         <>
-            <em class="text-xs">{dateString}</em>
+            <em className="text-xs">{dateString}</em>
         </>
     )
 

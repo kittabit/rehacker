@@ -3,16 +3,11 @@ import { use } from 'react';
 import SinglePost from "../components/posts/SinglePost"
 import NewsList from "../components/posts/NewsList"
 
-async function getNewsItems() {
-
-    const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
-    return res.json();
-
-}
+import { getNewsTopStories } from "../lib/items"
 
 export default function Page() {
     
-    var newsItems = use(getNewsItems());
+    const newsItems = use(getNewsTopStories());
 
     return (
         <>

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <head>
                 <title>Rehacker - HackerNews NextJS Clone</title>
-
+                <meta name="description" content="Simple and easy to use NextJS HackerNews Clone." />
                 <meta name="viewport" content="width=device-width" />
 
                 { env['NEXT_PUBLIC_ANALYTICS_ID'] &&
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
                 <header className="relative flex flex-col jus items-center justify-center overflow-hidden bg-hn-orange">
                     <nav className="container mx-auto pt-[15px] pb-[15px]">
 
-                        <ul className="flex justify-between items-center w-full max-w-5xl mx-auto">
+                        <ul className="flex justify-between items-center w-3/4 lg:w-full max-w-5xl mx-auto">
                             <NavLinks />
                         </ul>
                     </nav>

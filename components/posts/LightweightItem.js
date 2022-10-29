@@ -36,7 +36,7 @@ export default function LightweightItem( props ) {
                     { newsItem && newsItem.type == "story" && newsItem.title &&
                         <>
                             <div className="py-2 bg-white hover:bg-slate-100 transition ease-in-out delay-150 border-b transition-all duration-300 ease-in-out" data-id={ props.id }>
-                                <span className="px-2">
+                                <span className="lg:px-2">
                                     <Link href="/item/[id]" as={`/item/${newsItem.id}`} className="hover:underline underline-offset-2">
                                         { newsItem.title }
                                     </Link>

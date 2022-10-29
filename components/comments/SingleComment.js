@@ -45,7 +45,7 @@ export default function SingleComment( props ) {
                                 </>
                             ) : (
                                 <>
-                                    <div className="text-sm leading-7 [&>p]:mb-1.5 [&>a]:underline w-11/12" dangerouslySetInnerHTML={{ __html: commentData.text }}></div>
+                                    <div className="text-sm leading-7 [&>p]:mb-1.5 [&>a]:underline lg:w-11/12" dangerouslySetInnerHTML={{ __html: commentData.text }}></div>
                                 </>
                             ) }
 

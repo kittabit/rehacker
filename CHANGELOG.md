@@ -1,5 +1,23 @@
 # CHANGELOG.md
 
+## 1.3.0 (2022-10-29)
+
+Features:
+
+  - Mobile Updates & Cleanup
+  - Sitemap.xml + Robots.txt
+  - Initial SEO Work (Title, Description, Canonical)
+
+Changed:
+
+  - Move API Calls from `app/*` into `lib/*`
+
+Fixed:
+
+  - `DateOutput.js` class to className Patch
+  - `SinglePost` Flex Updates (for meta information)
+  - `userData.about` inside `page.js` within `user/[slug]` HTML Output
+
 ## 1.2.0 (2022-10-28)
 
 Features:

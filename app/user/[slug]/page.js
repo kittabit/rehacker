@@ -1,21 +1,14 @@
 import React from 'react';
 import { use } from 'react';
-import Link from 'next/link';
 
 import DateOutput from '../../../components/global/DateOutput';
-import DomainOutput from '../../../components/global/DomainOutput';
-import SingleComment from '../../../components/comments/SingleComment';
 import LightweightItem from '../../../components/posts/LightweightItem';
 
-async function getUserData(id) {
+import { getUserProfile } from '../../../lib/users';
 
-    const res = await fetch('https://hacker-news.firebaseio.com/v0/user/' + id + '.json');
-    return res.json();
+export default function SingleNewsItemPage({ params }) {
 
-}
-
-export default function SingleNewsItemPage({ params, searchParams }) {
-    var userData = use(getUserData( params.slug ));
+    const userData = use(getUserProfile( params.slug ));
 
     return (
         <>            
@@ -25,26 +18,26 @@ export default function SingleNewsItemPage({ params, searchParams }) {
 
                         <h2 className="font-bold font-base mb-2 mt-2">Basic Information:</h2>
 
-                        <div className="grid grid-cols-5">
+                        <div className="mb-4 lg:grid lg:mb-0 grid-cols-5">
                             <div className="col-span-1">Username:</div>
                             <div className="col-span-4">{ params.slug }</div>
                         </div>
 
-                        <div className="grid grid-cols-5">
+                        <div className="mb-4 lg:grid lg:mb-0 grid-cols-5">
                             <div className="col-span-1">Created:</div>
                             <div className="col-span-4"><DateOutput time={ userData.created } /></div>
                         </div>
 
-                        <div className="grid grid-cols-5">
+                        <div className="mb-4 lg:grid lg:mb-0 grid-cols-5">
                             <div className="col-span-1">Karma:</div>
                             <div className="col-span-4">{ userData.karma }</div>
                         </div>
 
                         { userData.about &&
                             <>
-                                <div className="grid grid-cols-5">
+                                <div className="mb-4 lg:grid lg:mb-0 grid-cols-5">
                                     <div className="col-span-1">About:</div>
-                                    <div className="col-span-4">{ userData.about }</div>
+                                    <div className="col-span-4" dangerouslySetInnerHTML={{ __html: userData.about }}></div>
                                 </div>
                             </>
                         }
