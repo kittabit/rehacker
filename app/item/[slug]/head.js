@@ -10,7 +10,7 @@ export default async function Head({ params }) {
     return (
       <>
         <title>Item #{ params.slug } | Rehacker - HackerNews NextJS Clone</title>
-        <link rel="canonical" href={`/item/${ params.slug }`} precedence="true" />
+        <link rel="canonical" href={`https://rehacker.xyz/item/${ params.slug }`} precedence="true" />
       </>
     )
 }
