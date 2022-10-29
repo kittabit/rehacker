@@ -10,6 +10,21 @@ export default function PaginateNews( props ) {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
+    var maxPage = 5;
+    if( pathname == "/" ) {
+        var maxPage = 5;
+    } else if( pathname == "/news" ) {
+        var maxPage = 5;
+    } else if ( pathname == "/show" ) {
+        var maxPage = 2;
+    } else if ( pathname == "/ask" ) {
+        var maxPage = 3;
+    } else if ( pathname == "/jobs" ) {
+        var maxPage = 3;
+    } else {
+        var maxPage = 5;
+    }
+
     var p = searchParams.get('p');
     if( p == null ) {
         p = 0;
@@ -40,11 +55,11 @@ export default function PaginateNews( props ) {
                         </div>
 
                         <div className="col-span-1 text-center">
-                            { p_output } / 3
+                            { p_output } / { maxPage }
                         </div>
 
                         <div className="col-span-2 text-left">
-                            { next_page < 3 ? (
+                            { next_page < maxPage ? (
                                 <>
                                     <Link href={`${pathname}?p=${next_page}`}>
                                         <button>next &gt;</button>
