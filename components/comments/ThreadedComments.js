@@ -31,7 +31,7 @@ export default function ThreadedComments( props ) {
                                 </Link>
                             </strong> 
                             <span className="text-xs text-gray-400 pl-2"><DateOutput time={ commentData.time } /></span>
-                            <div className="text-sm leading-7 [&>p]:mb-1.5 w-11/12" dangerouslySetInnerHTML={{ __html: commentData.text }}></div>
+                            <div className="text-sm leading-7 [&>p]:mb-1.5 lg:w-11/12" dangerouslySetInnerHTML={{ __html: commentData.text }}></div>
                         </div>
                     </div>
                 </>

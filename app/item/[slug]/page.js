@@ -6,15 +6,11 @@ import DateOutput from '../../../components/global/DateOutput';
 import DomainOutput from '../../../components/global/DomainOutput';
 import SingleComment from '../../../components/comments/SingleComment';
 
-async function getNewsItem(id) {
-
-    const res = await fetch('https://hacker-news.firebaseio.com/v0/item/' + id + '.json?print=pretty');
-    return res.json();
-
-}
+import { getSingleNewsItem } from '../../../lib/items';
 
 export default function SingleNewsItemPage({ params, searchParams }) {
-    var newsItem = use(getNewsItem( params.slug ));
+    
+    var newsItem = use(getSingleNewsItem( params.slug ));
 
     var comments = newsItem.kids;
 
@@ -55,7 +51,7 @@ export default function SingleNewsItemPage({ params, searchParams }) {
                     </div>
 
                     <div className="antialiased w-full max-w-5xl bg-white shadow-xl shadow-gray-100 border-gray p-4 mt-4">
-                        <h3 className="flex space-y-4 px-2 ml-4 text-lg font-semibold text-gray-900">Comments</h3>
+                        <h3 className="flex space-y-4 lg:px-2 lg:ml-4 text-lg font-semibold text-gray-900">Comments</h3>
 
                         <div className="space-y-4">
 
