@@ -25,7 +25,3 @@ Please feel free to fork, make changes, point out bugs/idiotic configurations, e
 ### Analytics
 
 If you'd like to use Google Tag Manager, you can use the `NEXT_PUBLIC_ANALYTICS_ID` environment variable with your `GTM-XXXX` tag to have this applied to your build.
-
-### Current Todo's
-
-* Caching & Performance Updates

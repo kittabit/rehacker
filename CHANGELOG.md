@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## 1.5.0 (2022-10-29)
+
+Changed:
+
+  - ADA Fix on Back to Top Button
+  - Canonical Absolute URL's (silly bug)
+
 ## 1.4.0 (2022-10-29)
 
 Changed:

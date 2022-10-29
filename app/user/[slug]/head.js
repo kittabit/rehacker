@@ -3,7 +3,7 @@
     return (
       <>
         <title>{ params.slug } | Rehacker - HackerNews NextJS Clone</title>
-        <link rel="canonical" href={`/user/${ params.slug }`} precedence="true" />
+        <link rel="canonical" href={`https://rehacker.xyz/user/${ params.slug }`} precedence="true" />
       </>
     )
 
