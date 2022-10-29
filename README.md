@@ -29,4 +29,3 @@ If you'd like to use Google Tag Manager, you can use the `NEXT_PUBLIC_ANALYTICS_
 ### Current Todo's
 
 * Caching & Performance Updates
-* Dynamic Page Count (New, Jobs, Ask, etc)

@@ -34,24 +34,27 @@ export default function SingleNewsItemPage({ params, searchParams }) {
                             <span className="font-normal text-xs pl-2"><DomainOutput url={ newsItem.url } /></span>
                         </h3>
 
-                        <div className="mt-2">
-                            <span className="inline-block text-sm pr-2">{ newsItem.score } Points</span>
+                        <div className="items-center">             
+                            <div className="flex gap-2">
+                                <div className="col-span-1 text-xs">
+                                    Created by <Link href="/user/[username]" as={`/user/${newsItem.by}`} className="hover:underline underline-offset-2">{ newsItem.by }</Link>
+                                </div>
 
-                            <span className="inline-block text-slate-600 text-sm items-center pr-2"> 
-                                <DateOutput time={ newsItem.time } />
-                            </span>
+                                <div className="col-span-1 text-xs">
+                                    <DateOutput time={ newsItem.time } />
+                                </div>
 
-                            <span className="inline-block text-slate-600 text-sm items-center"> 
-                                by 
-                                <Link href="/user/[username]" as={`/user/${newsItem.by}`} className="hover:underline underline-offset-2 pl-[4px]">
-                                { newsItem.by }
-                                </Link>
-                            </span>
+                                <div className="col-span-1 text-xs">
+                                    <Link href="/item/[id]" as={`/item/${newsItem.id}`} className="hover:underline underline-offset-2 text-xs">        
+                                        { newsItem.descendants } comments
+                                    </Link>
+                                </div>
+                            </div>                                            
                         </div>
                     </div>
 
-                    <div className="antialiased w-full max-w-5xl bg-white shadow-xl shadow-gray-100 border-gray p-4 mt-4">
-                        <h3 className="flex space-y-4 lg:px-2 lg:ml-4 text-lg font-semibold text-gray-900">Comments</h3>
+                    <div className="antialiased w-full max-w-5xl bg-white shadow-xl shadow-gray-100 border-gray p-4 px-5 mt-4">
+                        <h3 className="flex text-lg font-semibold text-gray-900 mb-2">Comments</h3>
 
                         <div className="space-y-4">
 

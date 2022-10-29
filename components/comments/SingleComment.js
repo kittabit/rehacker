@@ -31,7 +31,7 @@ export default function SingleComment( props ) {
             { isLoaded && commentData.by &&
                 <>
                     <div className="flex" data-comment_id={ props.comment_id }>
-                        <div className="flex-1 sm:px-6 sm:py-2 leading-relaxed">
+                        <div className="flex-1 leading-relaxed">
                             <strong>
                                 <Link href="/user/[username]" as={`/user/${commentData.by}`} className="hover:underline underline-offset-2">
                                     { commentData.by }

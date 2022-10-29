@@ -13,8 +13,6 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
-                <title>Rehacker - HackerNews NextJS Clone</title>
-                <meta name="description" content="Simple and easy to use NextJS HackerNews Clone." />
                 <meta name="viewport" content="width=device-width" />
 
                 { env['NEXT_PUBLIC_ANALYTICS_ID'] &&
@@ -49,8 +47,8 @@ export default function RootLayout({ children }) {
 
                 <footer className="text-black bg-gray-50 pt-2 pb-6">
                     <div className="max-w-4xl mx-auto w-full text-center">
-                        <span className="block text-sm">Data provided by <a href="https://github.com/HackerNews/API" className="hover:underline underline-offset-2" target="_blank" rel="noreferrer">Official HackerNews API</a>.</span>
-                        <span className="block text-sm">Built w/ &#10084; by <a href="https://kittabit.com/" className="hover:underline underline-offset-2" target="_blank" rel="noreferrer">Kittabit</a>.</span>
+                        <span className="block text-sm">Data provided by <a href="https://github.com/HackerNews/API" className="hover:underline underline-offset-2" target="_blank" rel="noreferrer">HackerNews API</a>.</span>
+                        <span className="block text-sm">Built with &#10084; by <a href="https://kittabit.com/" className="hover:underline underline-offset-2" target="_blank" rel="noreferrer">Kittabit</a>.</span>
                         <span className="block text-sm">Source Code on <a href="https://github.com/kittabit/rehacker" className="hover:underline underline-offset-2" target="_blank" rel="noreferrer">GitHub</a>.</span>
                     </div> 
                 </footer>

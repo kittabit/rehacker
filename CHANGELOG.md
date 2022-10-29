@@ -1,5 +1,15 @@
 # CHANGELOG.md
 
+## 1.4.0 (2022-10-29)
+
+Changed:
+
+  - Layout/`Head` Updates
+  - Pagination Updates & Changes
+  - Caching Tweaks
+  - Single News/Item Meta Detail Updates (to match index pages)
+  - Padding/Margin Comment Cleanup
+
 ## 1.3.0 (2022-10-29)
 
 Features:
